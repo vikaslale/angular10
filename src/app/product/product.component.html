@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col"><input class="form-control" type="text" [value]="searchBy" (input)="filterMe($event)"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>{{searchBy}}</p>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-3">
+      <button class="btn btn-danger" (click)="unsubscribe()">Unsubscribe observable</button>
+    </div>
+  </div>
+</div>
+<div class="container mt-3"><div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let product of products">
+    <div class="card h-100">
+      <img src="https://cdn.vox-cdn.com/thumbor/v97OD-MBgNjw8p5crApucVs9RB8=/0x0:2050x1367/1800x1800/filters:focal(1025x684:1026x685)/cdn.vox-cdn.com/uploads/chorus_asset/file/22022572/bfarsace_201106_4269_012.0.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name | uppercase}}</h5>
+        <!-- <p class="card-text">Price : {{product.price |currency :"INR":true:"1.0-1"}}</p> -->
+        <div>Rating :<app-star [rating]="product.rating" (sendRating)="displayrating($event)"></app-star></div>
+        <!-- <p class="card-text">Description : {{product.description}}</p> -->
+        <a class="btn btn-primary" (click)="addtocart()">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+
+
+</div></div>
